@@ -22,7 +22,7 @@ nombre VARCHAR(100) NOT NULL,
 email VARCHAR(100) UNIQUE ,
 ciudad VARCHAR(50),
 fecha_registro date NOT NULL,
-CONSTRAINT PK_clientes PRIMARY KEY (id_cliente),
+CONSTRAINT PK_clientes PRIMARY KEY (id_cliente)
 );
 
 Create table productos (
@@ -33,7 +33,7 @@ precio DECIMAL(10,2) NOT NULL,
 stock INT DEFAULT 0,
 activo BIT DEFAULT 1,
 CONSTRAINT PK_productos PRIMARY KEY (id_producto),
-CONSTRAINT FK_categorias_productos FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria), 
+CONSTRAINT FK_categorias_productos FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
 );
 
 Create table ventas (
@@ -44,8 +44,8 @@ cantidad INT NOT NULL,
 precio_unitario DECIMAL(10,2) NOT NULL,
 fecha_venta DATE NOT NULL,
 CONSTRAINT PK_ventas PRIMARY KEY (id_venta),
-CONSTRAINT FK_ventas_clientes FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente), 
-CONSTRAINT FK_ventas_productos FOREIGN KEY (id_producto) REFERENCES productos(id_producto), 
+CONSTRAINT FK_ventas_clientes FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
+CONSTRAINT FK_ventas_productos FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
 );
 
 
